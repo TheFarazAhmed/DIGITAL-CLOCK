@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+        <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+
+<script>
+function SystemTime() {
+
+var sep=":";
+var ampm;
+
+var a = new Date();
+    
+var ss = a.getSeconds();
+ss = convert_1(ss);
+
+var mm = a.getMinutes();
+mm = convert_1(mm);
+
+var hh = a.getHours();
+
+
+if(hh==0)
+{
+ampm=" AM";
+hh=12;
+}
+else if(hh<12)
+{
+ampm=" AM";
+}
+else if(hh==12)
+{
+ampm=" PM";
+}
+else if(hh>12)
+{
+ampm=" PM";
+hh=hh-12;
+}
+
+
+document.getElementById('time').innerHTML = hh+sep+mm+sep+ss+ampm;
+
+setInterval(SystemTime, 1000);
+}
+
+
+function convert_1(n)
+{
+if (n < 10)
+n="0"+n;
+return n;
+}
+
+</script>
+
+<link href="style.css" rel="stylesheet" >
+
+</head>
+
+<body onload="SystemTime()">
+
+<br><br><br><br><br>
+<center><h1 id="time"></h1></center>
+
+
+</body>
+</html>
